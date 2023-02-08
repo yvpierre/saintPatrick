@@ -32,12 +32,10 @@ public class Article {
     private int quantity;
     @Column(nullable = false)
     private String imgUrl;
-    @Column(nullable = false)
-    private boolean stockDispo;
-    @Column(name ="avis_client",  nullable = false)
-    private byte notice; // notice // avis client
+    @Column(name = "dispo_en_stock",nullable = false)
+    private boolean isStockDispo;
     private int size;
+    private Boolean isMajor;
 
-    private Boolean major;
 
 }
