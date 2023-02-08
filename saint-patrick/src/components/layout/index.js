@@ -1,7 +1,6 @@
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
-import Biere from '../bieres';
-import biere from '../bieres';
-import Deguisement from '../deguisement';
+import Biere from '../article';
+import biere from '../article';
 const { Header, Content, Footer } = Layout;
 
 
@@ -41,16 +40,17 @@ const GlobalLayout = () => {
       </Header>
       <Content
         style={{
-          padding: '0 50px',
+          padding: '100px 50px',
         }}
       >
         <div
           className="site-layout-content"
           style={{
             background: colorBgContainer,
+            padding: "10px 20px"
           }}
         >
-          Content
+          <Biere/>
         </div>
       </Content>
       <Footer

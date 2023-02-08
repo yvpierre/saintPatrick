@@ -4,9 +4,12 @@ import GlobalLayout from './components/layout';
 
 function App() {
   return (
-    <div>
-      <GlobalLayout></GlobalLayout>
-      </div>
+      <>
+          <div>
+              <GlobalLayout></GlobalLayout>
+          </div>
+      </>
+
     
   );
 }
