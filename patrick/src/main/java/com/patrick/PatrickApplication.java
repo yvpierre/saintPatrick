@@ -26,7 +26,7 @@ public class PatrickApplication {
 		{
 			categoryRepository.save(Category.builder().name("Déguisement").description("Les meilleurs déguisement pour la Saint Patrick").build());
 			categoryRepository.save(Category.builder().name("Décorations").description("Les meilleures décorations pour la Saint Patrick").build());
-			categoryRepository.save(Category.builder().name("Accéssoires").description("Les meilleurs accessoires pour embellir votre déguisement").build());
+			categoryRepository.save(Category.builder().name("Accessoires").description("Les meilleurs accessoires pour embellir votre déguisement").build());
 			categoryRepository.save(Category.builder().name("Bières").description("Les meilleurs bières pour célébrer l'événement").build());
 		}
 
