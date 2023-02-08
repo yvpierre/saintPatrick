@@ -1,4 +1,7 @@
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
+import Biere from '../bieres';
+import biere from '../bieres';
+import Deguisement from '../deguisement';
 const { Header, Content, Footer } = Layout;
 
 
@@ -12,8 +15,12 @@ function getItem(label, key, icon, children) {
   };
 }
 const items = [
-  getItem('Bières', '1'),
+  getItem('Bières', '1' ),
   getItem('Déguisements', '2'),
+  getItem('Accessoires', '3'),
+  getItem('Décorations', '4'),
+
+  
 ];
 
 
@@ -23,13 +30,13 @@ const GlobalLayout = () => {
   } = theme.useToken();
   return (
     <Layout className="layout">
-      <Header>
+      <Header style={{ padding: "0px" }}>
         <div className="logo" />
         <Menu
           theme="dark"
           mode="horizontal"
-          defaultSelectedKeys={['2']}
           items={items}
+          style={{ backgroundColor: 'green' }}
         />
       </Header>
       <Content
