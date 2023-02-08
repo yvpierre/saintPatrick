@@ -19,7 +19,7 @@ public class Article {
     private long id;
 
     @ManyToMany
-    private List<Category> category;
+    private List<Category> categories;
 
     @Column(nullable = false)
     private String name;
@@ -27,14 +27,15 @@ public class Article {
     @Column(nullable = false)
     private String description;
     @Column(nullable = false)
-    private int price;
+    private float price;
     @Column(nullable = false)
     private int quantity;
     @Column(nullable = false)
     private String imgUrl;
     @Column(name = "dispo_en_stock",nullable = false)
     private boolean isStockDispo;
-    private int size;
+    private String size;
+    @Column(nullable = false)
     private Boolean isMajor;
 
 
