@@ -24,12 +24,9 @@ const items = [
 
 
 const GlobalLayout = () => {
-  const {
-    token: { colorBgContainer },
-  } = theme.useToken();
   return (
     <Layout className="layout">
-      <Header style={{ padding: "0px" }}>
+      <Header style={{ padding: "0px", display: 'flex', justifyContent: 'center', backgroundColor: 'green' }}>
         <div className="logo" />
         <Menu
           theme="dark"
@@ -45,10 +42,13 @@ const GlobalLayout = () => {
       >
         <div
           className="site-layout-content"
+<<<<<<< Updated upstream
           style={{
             background: colorBgContainer,
             padding: "10px 20px"
           }}
+=======
+>>>>>>> Stashed changes
         >
           <Biere/>
         </div>
