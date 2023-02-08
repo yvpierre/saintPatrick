@@ -19,7 +19,7 @@ public class Article {
     private long id;
 
     @ManyToMany
-    private List<Category> category;
+    private List<Category> categories;
 
     @Column(nullable = false)
     private String name;
