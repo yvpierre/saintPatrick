@@ -1,6 +1,5 @@
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
 import Biere from '../article';
-import biere from '../article';
 const { Header, Content, Footer } = Layout;
 
 
@@ -19,7 +18,6 @@ const items = [
   getItem('Accessoires', '3'),
   getItem('Décorations', '4'),
 
-  
 ];
 
 
@@ -42,13 +40,9 @@ const GlobalLayout = () => {
       >
         <div
           className="site-layout-content"
-<<<<<<< Updated upstream
           style={{
-            background: colorBgContainer,
             padding: "10px 20px"
           }}
-=======
->>>>>>> Stashed changes
         >
           <Biere/>
         </div>
