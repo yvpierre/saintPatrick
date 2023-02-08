@@ -15,8 +15,10 @@ public class Category {
     @Column(name = "id", nullable = false)
     private long id;
 
+    @Column(nullable = false)
     private String name;
 
+    @Column(nullable = false, length = 1000)
     private String description;
 
 }

@@ -18,16 +18,22 @@ public class Command {
     @Column(name = "id", nullable = false)
     private long id;
 
+    @Column(nullable = false)
     private String buyerName;
 
+    @Column(nullable = false)
     private String buyerEmail;
 
+    @Column(nullable = false)
     private String buyerAddress;
 
+    @Column(nullable = false)
     private float amount;
 
+    @Column(nullable = false)
     private boolean isDelivered;
 
     @ManyToMany
+    @Column(nullable = false)
     private List<Article> articles;
 }

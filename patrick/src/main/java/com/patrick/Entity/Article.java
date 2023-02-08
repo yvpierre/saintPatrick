@@ -24,17 +24,23 @@ public class Article {
     @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 1000)
     private String description;
+
     @Column(nullable = false)
-    private int price;
+    private float price;
+
     @Column(nullable = false)
     private int quantity;
+
     @Column(nullable = false)
     private String imgUrl;
+
     @Column(name = "dispo_en_stock",nullable = false)
     private boolean isStockDispo;
-    private int size;
+
+    private String size;
+
     private Boolean isMajor;
 
 
