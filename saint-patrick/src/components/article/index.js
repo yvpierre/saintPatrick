@@ -2,7 +2,7 @@ import React from 'react'
 import { Card } from 'antd';
 const { Meta } = Card;
 
-export default function Biere() {
+export default function Article({ infos }) {
   return (
     <>
         <Card
@@ -10,7 +10,7 @@ export default function Biere() {
             style={{ width: 240 }}
             cover={<img alt="example" src="null" />}
         >
-            <Meta title="Bière de fou" description="Pour boire la bière" />
+            <Meta title={infos.nomArticle} description={infos.desc} />
         </Card>
     </>
 

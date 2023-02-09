@@ -1,5 +1,6 @@
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
-import Biere from '../article';
+import Article from '../article';
+import PageArticles from "../pageArticles/pageArticles";
 const { Header, Content, Footer } = Layout;
 
 
@@ -44,7 +45,7 @@ const GlobalLayout = () => {
             padding: "10px 20px"
           }}
         >
-          <Biere/>
+            <PageArticles/>
         </div>
       </Content>
       <Footer
