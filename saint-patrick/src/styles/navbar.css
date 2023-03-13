@@ -34,13 +34,17 @@
   margin-right: 30px;
 }
 .navbar .menuItems div, .navbar .menuRight div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 16px;
-  padding: 7.5px 10px;
-  margin: 0 4px;
+  height: 70px;
+  margin: 0 10px;
 }
 .navbar .menuItems div:hover, .navbar .menuRight div:hover {
-  border-bottom: 3px solid #008000;
+  border-bottom: 4px solid #008000;
   transition: 0.125s ease-in;
+  padding-bottom: 5px;
   border-radius: 0px;
 }
 
