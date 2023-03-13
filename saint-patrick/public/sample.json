@@ -1,0 +1,27 @@
+[
+  {
+    "nomArticle": "Biere blonde",
+    "prix": 20.4,
+    "desc": "bonne biere",
+    "category": 1
+  },
+  {
+    "nomArticle": "Biere blonde",
+    "prix": 20.4,
+    "desc": "bonne biere",
+    "category": 1
+  },
+  {
+    "nomArticle": "Accessoire",
+    "prix": 20.4,
+    "desc": "bonne biere",
+    "category": 2
+  },
+  {
+    "nomArticle": "Déguisment",
+    "prix": 20.4,
+    "desc": "bonne biere",
+    "category": 3
+  }
+  
+]
