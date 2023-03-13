@@ -1,0 +1,47 @@
+.navbar {
+  background-color: #FFFFFF;
+  justify-content: space-between;
+  height: 70px;
+  display: flex;
+  flex-direction: row;
+}
+.navbar .logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  max-height: 70px;
+  width: 200px;
+}
+.navbar .logo img {
+  height: 60px;
+  margin-left: 30px;
+  width: 60px;
+}
+.navbar .logo h1 {
+  font-size: 30px;
+  color: #008000;
+  line-height: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  margin-left: 10px;
+}
+.navbar .menuItems, .navbar .menuRight {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-right: 30px;
+}
+.navbar .menuItems div, .navbar .menuRight div {
+  font-size: 16px;
+  padding: 7.5px 10px;
+  margin: 0 4px;
+}
+.navbar .menuItems div:hover, .navbar .menuRight div:hover {
+  border-bottom: 3px solid #008000;
+  transition: 0.125s ease-in;
+  border-radius: 0px;
+}
+
+/*# sourceMappingURL=navbar.css.map */

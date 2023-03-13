@@ -1,24 +1,15 @@
-import { ConfigProvider, Layout, Menu, theme } from "antd";
+import { ConfigProvider, Layout, Menu } from "antd";
 import React, { useState } from "react";
 import {
   ShoppingCartOutlined, SettingOutlined
 } from "@ant-design/icons";
 import Panier from "../panier/panier";
 import PageArticles from "../pageArticles/pageArticles";
+import "../../styles/navbar.css";
+
 
 const { Header, Content, Footer } = Layout;
 
-
-const { darkAlgorithm } = theme;
-const customTheme = {
-  algorithm: [darkAlgorithm],
-  token: {
-    colorPrimary: "#008000",
-    borderRadius: 5,
-    colorBgBase: "#EFEFEF",
-    colorTextBase: "black",
-  },
-};
 
 const components = [<PageArticles/>, <Panier/>,];
 
@@ -30,50 +21,50 @@ const GlobalLayout = () => {
   };
 
   return (
-    <ConfigProvider theme={customTheme}>
+    <ConfigProvider>
       <Layout className="layout">
-        <Header
-          style={{
-            padding: "0px",
-            display: "flex",
-            backgroundColor: "#008000",
-            justifyContent: "space-between"
-          }}
-        >
+        <header className="navbar">
           <div className="logo">
             <img
-              style={{ height: "100%" }}
-              src={process.env.PUBLIC_URL + "/Blog-petit-homme-5.png"}
+              src={process.env.PUBLIC_URL + "/logo_site.png"}
               alt="Image"
             />
+            <h1>SAINT<br/>PATRICK</h1>
+          </div>
+          <div className={"menuItems"}>
+            <div onClick={() => handleMenuClick(1)}>
+              Bières
+            </div>
+            <div onClick={() => handleMenuClick(2)}>
+              Déguisements
+            </div>
+            <div onClick={() => handleMenuClick(3)}>
+              Accessoires
+            </div>
+            <div onClick={() => handleMenuClick(4)}>
+              Décorations
+            </div>
+          </div>
+          <div className={"menuItems"}>
+            <div onClick={() => handleMenuClick(-1)}
+            ><SettingOutlined />Admin
+            </div>
+            <div onClick={() => handleMenuClick(4)}
+            ><ShoppingCartOutlined/>Panier
+            </div>
+          </div>
+          {/*
+          <div>
+
           </div>
           <div>
-            <Menu mode="horizontal" style={{ backgroundColor: "#008000" }}>
-              <Menu.Item onClick={() => handleMenuClick(1)}>
-                Bières
-                </Menu.Item>
-              <Menu.Item onClick={() => handleMenuClick(2)}>
-                Déguisements
-              </Menu.Item>
-              <Menu.Item onClick={() => handleMenuClick(3)}>
-                Accessoires
-              </Menu.Item>
-              <Menu.Item onClick={() => handleMenuClick(4)}>
-                Décorations
-              </Menu.Item>
-            </Menu>
+
           </div>
-          <div>
-            <Menu mode="horizontal" style={{ backgroundColor: "#008000" }}>
-            <Menu.Item onClick={() => handleMenuClick(-1)}
-              ><SettingOutlined />Admin
-              </Menu.Item>
-              <Menu.Item onClick={() => handleMenuClick(4)}
-              ><ShoppingCartOutlined/>Panier
-              </Menu.Item>
-            </Menu>
-          </div>
-        </Header>
+          */}
+
+
+        </header>
+
         <Content
           style={{
             padding: "100px 50px",
