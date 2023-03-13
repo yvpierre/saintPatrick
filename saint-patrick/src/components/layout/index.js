@@ -1,13 +1,10 @@
 import { ConfigProvider, Layout, Menu, theme } from "antd";
 import React, { useState } from "react";
 import {
-  ShoppingCartOutlined
+  ShoppingCartOutlined, SettingOutlined
 } from "@ant-design/icons";
-import Biere from "../biere/biere";
-import Deguisement from "../deguisement/deguisement";
-import Accessoire from "../accessoire/accessoire";
-import Decoration from "../decoration/decoration";
 import Panier from "../panier/panier";
+import PageArticles from "../pageArticles/pageArticles";
 
 const { Header, Content, Footer } = Layout;
 
@@ -23,7 +20,7 @@ const customTheme = {
   },
 };
 
-const components = [<Biere/>, <Deguisement/>, <Accessoire/>, <Decoration/>, <Panier/>];
+const components = [<PageArticles/>, <Panier/>,];
 
 const GlobalLayout = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -52,22 +49,25 @@ const GlobalLayout = () => {
           </div>
           <div>
             <Menu mode="horizontal" style={{ backgroundColor: "#008000" }}>
-              <Menu.Item onClick={() => handleMenuClick(0)}>
+              <Menu.Item onClick={() => handleMenuClick(1)}>
                 Bières
                 </Menu.Item>
-              <Menu.Item onClick={() => handleMenuClick(1)}>
+              <Menu.Item onClick={() => handleMenuClick(2)}>
                 Déguisements
               </Menu.Item>
-              <Menu.Item onClick={() => handleMenuClick(2)}>
+              <Menu.Item onClick={() => handleMenuClick(3)}>
                 Accessoires
               </Menu.Item>
-              <Menu.Item onClick={() => handleMenuClick(3)}>
+              <Menu.Item onClick={() => handleMenuClick(4)}>
                 Décorations
               </Menu.Item>
             </Menu>
           </div>
           <div>
             <Menu mode="horizontal" style={{ backgroundColor: "#008000" }}>
+            <Menu.Item onClick={() => handleMenuClick(-1)}
+              ><SettingOutlined />Admin
+              </Menu.Item>
               <Menu.Item onClick={() => handleMenuClick(4)}
               ><ShoppingCartOutlined/>Panier
               </Menu.Item>
@@ -85,7 +85,7 @@ const GlobalLayout = () => {
               padding: "10px 20px",
             }}
           >
-            {components[selectedIndex]}
+            <PageArticles index={selectedIndex}/>
           </div>
         </Content>
         <Footer

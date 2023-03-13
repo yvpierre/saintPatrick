@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import Article from "../article";
 
-const PageArticles = () => {
+const PageArticles = ({index = -1}) => {
     const [data,setData]=useState([]);
     const getData=()=>{
         fetch('sample.json'
@@ -23,15 +23,26 @@ const PageArticles = () => {
     useEffect( () => {
             getData()
     }, [])
+    
+    let isAdmin= false
+
+    const getArticlesParCategorie = (index) => {
+        if(index === -1){
+            isAdmin= true;
+            return data
+        } else {
+            return data.filter(elem => elem.category === index);
+        }
+      }
+      console.log(getArticlesParCategorie(index))
+
 
     return (
         <div>
-            {data.map(elem => {
-                return (
-                    <Article infos={elem}/>
-                )
-            })}
-        </div>
+        {getArticlesParCategorie(index).map(elem => (
+          <Article infos={elem} isAdmin= {isAdmin}  />
+        ))}
+      </div>
     );
 
 };

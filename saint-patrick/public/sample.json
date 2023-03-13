@@ -2,41 +2,26 @@
   {
     "nomArticle": "Biere blonde",
     "prix": 20.4,
-    "desc": "bonne biere"
-  },
-  {
-    "nomArticle": "Biere blanche",
-    "prix": 10,
-    "desc": "bonne biere"
-  },
-  {
-    "nomArticle": "Biere brune",
-    "prix": 32.4,
-    "desc": "bonne biere"
+    "desc": "bonne biere",
+    "category": 1
   },
   {
     "nomArticle": "Biere blonde",
     "prix": 20.4,
-    "desc": "bonne biere"
+    "desc": "bonne biere",
+    "category": 1
   },
   {
-    "nomArticle": "Biere blonde",
+    "nomArticle": "Accessoire",
     "prix": 20.4,
-    "desc": "bonne biere"
+    "desc": "bonne biere",
+    "category": 2
   },
   {
-    "nomArticle": "Biere blonde",
+    "nomArticle": "Déguisment",
     "prix": 20.4,
-    "desc": "bonne biere"
-  },
-  {
-    "nomArticle": "Biere blonde",
-    "prix": 20.4,
-    "desc": "bonne biere"
-  },
-  {
-    "nomArticle": "Biere blonde",
-    "prix": 20.4,
-    "desc": "bonne biere"
+    "desc": "bonne biere",
+    "category": 3
   }
+  
 ]

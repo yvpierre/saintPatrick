@@ -3,12 +3,13 @@ import {
   EditOutlined,
   ShoppingCartOutlined,
   SettingOutlined,
+  DeleteOutlined
 } from "@ant-design/icons";
 import { Avatar, Card, Modal } from "antd";
 import { useState } from "react";
 const { Meta } = Card;
 
-export default function Article({ infos }) {
+export default function Article({ infos, isAdmin }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const showModal = () => {
     setIsModalOpen(true);
@@ -29,7 +30,11 @@ export default function Article({ infos }) {
             src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
           />
         }
-        actions={[<ShoppingCartOutlined key="buy" onClick={showModal} />]}
+        actions={
+          isAdmin
+            ? [<EditOutlined key="edit" />, <DeleteOutlined key="delete" />]
+            : [<ShoppingCartOutlined key="buy" onClick={showModal} />]
+        }
       >
         <Meta title={infos.nomArticle} description={infos.desc} />
       </Card>
