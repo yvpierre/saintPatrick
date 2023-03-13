@@ -52,7 +52,9 @@ const GlobalLayout = () => {
           </div>
           <div>
             <Menu mode="horizontal" style={{ backgroundColor: "#008000" }}>
-              <Menu.Item onClick={() => handleMenuClick(0)}>Bières</Menu.Item>
+              <Menu.Item onClick={() => handleMenuClick(0)}>
+                Bières
+                </Menu.Item>
               <Menu.Item onClick={() => handleMenuClick(1)}>
                 Déguisements
               </Menu.Item>
