@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import Article from "../article";
+import '../../index.css';
 
 const PageArticles = ({index = -1}) => {
     const [data,setData]=useState([]);
@@ -38,7 +39,7 @@ const PageArticles = ({index = -1}) => {
 
 
     return (
-        <div>
+        <div className={"containerArticles"}>
         {getArticlesParCategorie(index).map(elem => (
           <Article infos={elem} isAdmin= {isAdmin}  />
         ))}

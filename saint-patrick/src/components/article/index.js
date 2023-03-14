@@ -19,10 +19,10 @@ export default function Article({ infos, isAdmin }) {
   };
 
   return (
-    <>
+    <div className={"cardArticle"}>
       <Card
         style={{
-          width: 300,
+          width: 250,
         }}
         cover={
           <img
@@ -41,6 +41,6 @@ export default function Article({ infos, isAdmin }) {
       <Modal title="Information" open={isModalOpen} onOk={handleOk}>
         <p>Article ajouté au panier !</p>
       </Modal>
-    </>
+    </div>
   );
 }

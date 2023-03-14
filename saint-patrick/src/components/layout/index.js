@@ -47,10 +47,10 @@ const GlobalLayout = () => {
           </div>
           <div className={"menuItems"}>
             <div onClick={() => handleMenuClick(-1)}
-            ><SettingOutlined />Admin
+            ><SettingOutlined />&nbsp;Admin
             </div>
             <div onClick={() => handleMenuClick(4)}
-            ><ShoppingCartOutlined/>Panier
+            ><ShoppingCartOutlined/>&nbsp;Panier
             </div>
           </div>
           {/*
