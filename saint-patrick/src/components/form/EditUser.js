@@ -19,10 +19,14 @@ console.log(infos)
         layout="horizontal"
         form={form}
         initialValues={{
-            Nom: infos.nomArticle,
-            Catégorie: infos.category,
-            Prix: infos.prix,
-            Description: infos.desc,
+            Nom: infos.name,
+            Catégorie: infos.categories[0].name,
+            Prix: infos.price,
+            Description: infos.description,
+            Taille: infos.size,
+            Url_image: infos.imgUrl,
+
+
           }}
       >
         <Form.Item
@@ -67,6 +71,32 @@ console.log(infos)
         <Form.Item
           label="Description"
           name="Description"
+          rules={[{ required: true, message: "Veuillez entrer votre adresse courriel" }]}
+        >
+          <Input
+            style={{
+              backgroundColor: "#fff",
+              borderRadius: "3px",
+              color: "black",
+            }}
+          />
+        </Form.Item>
+        <Form.Item
+          label="Taille"
+          name="Taille"
+          rules={[{ required: true, message: "Veuillez entrer votre adresse courriel" }]}
+        >
+          <Input
+            style={{
+              backgroundColor: "#fff",
+              borderRadius: "3px",
+              color: "black",
+            }}
+          />
+        </Form.Item>
+        <Form.Item
+          label="Url image"
+          name="Url_image"
           rules={[{ required: true, message: "Veuillez entrer votre adresse courriel" }]}
         >
           <Input

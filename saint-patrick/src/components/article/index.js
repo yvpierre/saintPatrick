@@ -28,14 +28,16 @@ export default function Article({ infos, isAdmin }) {
 
   return (
     <div className={"cardArticle"}>
+      
       <Card
         style={{
           width: 250,
+          marginBottom: 55
         }}
         cover={
-          <img
+          <img style={{width:"250px", height:"250px"}}
             alt="example"
-            src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
+            src= {infos.imgUrl}
           />
         }
         actions={
@@ -44,7 +46,7 @@ export default function Article({ infos, isAdmin }) {
             : [<ShoppingCartOutlined key="buy" />]
         }
       >
-        <Meta title={infos.nomArticle} description={infos.desc} />
+        <Meta title={infos.name} description={infos.price} />
       </Card>
       <Modal title="Modification d'un produit" visible={openEdit} onOk={handleClose} onCancel={handleClose}>
       <EditUser infos={record} />      

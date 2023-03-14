@@ -32,16 +32,16 @@ const GlobalLayout = () => {
             <h1>SAINT<br/>PATRICK</h1>
           </div>
           <div className={"menuItems"}>
-            <div onClick={() => handleMenuClick(1)}>
+            <div onClick={() => handleMenuClick(4)}>
               Bières
             </div>
-            <div onClick={() => handleMenuClick(2)}>
+            <div onClick={() => handleMenuClick(1)}>
               Déguisements
             </div>
             <div onClick={() => handleMenuClick(3)}>
               Accessoires
             </div>
-            <div onClick={() => handleMenuClick(4)}>
+            <div onClick={() => handleMenuClick(2)}>
               Décorations
             </div>
           </div>
