@@ -22,6 +22,18 @@
     "prix": 20.4,
     "desc": "bonne biere",
     "category": 3
+  },
+  {
+    "nomArticle": "Biere blonde",
+    "prix": 20.4,
+    "desc": "bonne biere",
+    "category": 1
+  },
+  {
+    "nomArticle": "Vin rouge",
+    "prix": 35.0,
+    "desc": "excellent vin rouge",
+    "category": 2
   }
   
 ]

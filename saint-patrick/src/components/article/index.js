@@ -7,16 +7,24 @@ import {
 } from "@ant-design/icons";
 import { Avatar, Card, Modal } from "antd";
 import { useState } from "react";
+import EditUser from "../form/EditUser";
 const { Meta } = Card;
 
 export default function Article({ infos, isAdmin }) {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const showModal = () => {
-    setIsModalOpen(true);
+
+  const [record, setSelectedUserId] = useState();
+
+  const [openEdit, setOpenEdit] = useState(false);
+
+  const showModalEdit = (infos) => {
+    setSelectedUserId(infos);
+    setOpenEdit(true);
   };
-  const handleOk = () => {
-    setIsModalOpen(false);
-  };
+
+  
+  const handleClose = () => {
+    setOpenEdit(false);
+  }
 
   return (
     <div className={"cardArticle"}>
@@ -32,14 +40,14 @@ export default function Article({ infos, isAdmin }) {
         }
         actions={
           isAdmin
-            ? [<EditOutlined key="edit" />, <DeleteOutlined key="delete" />]
-            : [<ShoppingCartOutlined key="buy" onClick={showModal} />]
+            ? [<EditOutlined key="edit" onClick={() => showModalEdit(infos)} />, <DeleteOutlined key="delete" />]
+            : [<ShoppingCartOutlined key="buy" />]
         }
       >
         <Meta title={infos.nomArticle} description={infos.desc} />
       </Card>
-      <Modal title="Information" open={isModalOpen} onOk={handleOk}>
-        <p>Article ajouté au panier !</p>
+      <Modal title="Modification d'un produit" visible={openEdit} onOk={handleClose} onCancel={handleClose}>
+      <EditUser infos={record} />      
       </Modal>
     </div>
   );
