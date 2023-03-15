@@ -70,7 +70,7 @@ public class CommandController {
         ArrayList<Command> commandsFiltered = new ArrayList<Command>() ;
 
         for(Command command : commands){
-            if(command.getBuyerEmail() == buyerEmail)
+            if(command.getBuyerEmail().equals(buyerEmail))
                 commandsFiltered.add(command) ;
         }
 
@@ -80,8 +80,8 @@ public class CommandController {
 
     //==================================================================================================
     //UPDATE
-    @PutMapping("/{id}")
-    public boolean updateCommand(@PathVariable Long id, @RequestBody Command command) {
+    @PostMapping("/{id}")
+    public boolean updateCommand(@RequestParam Long id, @RequestBody Command command) {
         Optional<Command> commandOptional = commandRepo.findById(id);
         if (commandOptional.isPresent()) {
             //Modification des champs
@@ -105,6 +105,7 @@ public class CommandController {
         Optional<Command> command = commandRepo.findById(id) ;
         if(command.isPresent()){
             command.get().setDelivered(true);
+            commandRepo.save(command.get());
             return true;
         }
         else
@@ -115,7 +116,7 @@ public class CommandController {
     //==================================================================================================
     //DELETE
     @DeleteMapping("/{id}")
-    public boolean deleteCommand(@PathVariable Long id) {
+    public boolean deleteCommand(@RequestParam Long id) {
         Optional<Command> commandOptional = commandRepo.findById(id);
         if (commandOptional.isPresent()) {
             commandRepo.deleteById(id);

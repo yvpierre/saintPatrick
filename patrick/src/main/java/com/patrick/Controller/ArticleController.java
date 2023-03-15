@@ -19,9 +19,10 @@ public class ArticleController {
 
     //==================================================================================================
     //CREATE
-    @RequestMapping(path="/create")
-    public void create(@RequestBody Article article) {
+    @PostMapping(path="/create")
+    public boolean create(@RequestBody Article article) {
         articleRepo.save(article);
+        return true;
     }
     //==================================================================================================
 
@@ -59,8 +60,8 @@ public class ArticleController {
 
     //==================================================================================================
     //UPDATE
-    @RequestMapping(path="/update")
-    public boolean update(@PathVariable Long id, @RequestBody Article article) {
+    @PostMapping(path="/update")
+    public boolean update(@RequestParam Long id, @RequestBody Article article) {
         Optional<Article> articleOptional = articleRepo.findById(id);
         if (articleOptional.isPresent()) {
             //Modification des champs
@@ -85,9 +86,14 @@ public class ArticleController {
 
     //==================================================================================================
     //DELETE
-    @RequestMapping(path="/delete")
-    public void delete(@RequestParam long id) {
-        articleRepo.deleteById(id);
+    @DeleteMapping(path="/delete")
+    public boolean delete(@RequestParam long id) {
+        if(get(id) != null){
+            articleRepo.deleteById(id);
+            return true;
+        }
+        else
+            return false;
     }
     //==================================================================================================
 }

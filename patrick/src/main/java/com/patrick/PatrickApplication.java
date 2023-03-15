@@ -2,15 +2,16 @@ package com.patrick;
 
 import com.patrick.Entity.Article;
 import com.patrick.Entity.Category;
+import com.patrick.Entity.Command;
 import com.patrick.Repository.ArticleRepository;
 import com.patrick.Repository.CategoryRepository;
+import com.patrick.Repository.CommandRepository;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 
 @SpringBootApplication
@@ -21,6 +22,9 @@ public class PatrickApplication {
 
 	@Autowired
 	ArticleRepository articleRepository;
+
+	@Autowired
+	CommandRepository commandRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(PatrickApplication.class, args);
@@ -65,6 +69,15 @@ public class PatrickApplication {
 
 			articleRepository.save(Article.builder().categories(cateBieres).name("Lot de 6 bières artisanales St Patrick Brasserie Ratz 6 x 33cl").description("Découvrez un lot de bières crée spécialement à l'occasion de la fête de la Saint Patrick, le 17 mars. Élaborée de façon artisanale, cette bière brune vous livrera ses arômes les plus torréfiés, ainsi qu'une amertume douce et longue en bouche.A consommer idéalement entre 8 et 10°C, vous ferez rimer ce lot de 6 bières avec partage et convivialité.").price(17.00f).quantity(10).imgUrl("https://m.media-amazon.com/images/I/71UH8WkuHAS.ACUX679.jpg").isStockDispo(true).isMajor(true).build());
 			articleRepository.save(Article.builder().categories(cateBieres).name("PPACK WHITE HAG").description("Si vous êtes amateur de bières irlandaises houblonnées, on dirait bien que ce Ce pack de la brasserie White Hag est fait pour vous ").price(25.50f).quantity(17).imgUrl("https://vandb-vandb-fr-storage.omn.proximis.com/Imagestorage/imagesSynchro/740/740/ddd5560e00209ff455cfeebf7c6979eccf25ae67_BCO038351_1.png").isStockDispo(true).isMajor(true).build());
+		}
+
+		if(commandRepository.count() == 0){
+			ArrayList<Article> articles = new ArrayList<>();
+			articles.add(articleRepository.findById(1L).get());
+			articles.add(articleRepository.findById(2L).get());
+			commandRepository.save(Command.builder().buyerName("Pablo Foucher").buyerAddress("11 rue des acacias").buyerEmail("pablo.foucher@mail.com").amount(200).isDelivered(false).articles(articles).build());
+			commandRepository.save(Command.builder().buyerName("Pablo Foucher").buyerAddress("11 rue des acacias").buyerEmail("pablo.foucher@mail.com").amount(200).isDelivered(false).articles(articles).build());
+
 		}
 
 	}
