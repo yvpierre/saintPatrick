@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.amar</groupId>
-	<artifactId>saintValentin</artifactId>
+	<artifactId>saintPatrick</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>saintValentin</name>
+	<name>saintPatrick</name>
 	<description>Projet exam Spring intro</description>
 	<properties>
 		<java.version>17</java.version>
