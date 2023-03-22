@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { Button, Card } from "antd";
 import {
-    ShoppingCartOutlined, SettingOutlined
-  } from "@ant-design/icons";
+  ShoppingCartOutlined,
+  SettingOutlined
+} from "@ant-design/icons";
 import Article from "../article";
 import "../../index.css";
 
 const PageArticles = ({ index = -1 }) => {
   const [data, setData] = useState([]);
-  const getData = () => {
-    fetch("sample.json", {
+  
+  useEffect(() => {
+    fetch("http://localhost:8090/Article/getAll", {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -21,10 +23,6 @@ const PageArticles = ({ index = -1 }) => {
       .then(function (myJson) {
         setData(myJson);
       });
-  };
-
-  useEffect(() => {
-    getData();
   }, []);
 
   let isAdmin = false;
@@ -37,9 +35,6 @@ const PageArticles = ({ index = -1 }) => {
       return data.filter((elem) => elem.categories[0].id === index);
     }
   };
-  console.log(getArticlesParCategorie(index));
-
-  
 
   return (
     <div className={"containerArticles"}>
@@ -47,7 +42,6 @@ const PageArticles = ({ index = -1 }) => {
         <Article infos={elem} isAdmin={isAdmin} />
       ))}
     </div>
-    
   );
 };
 
