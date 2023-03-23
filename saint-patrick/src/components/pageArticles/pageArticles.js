@@ -25,6 +25,21 @@ const PageArticles = ({ index = -1 }) => {
       });
   }, []);
 
+  const refreshArticles = () => {
+    fetch("http://localhost:8090/Article/getAll", {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (myJson) {
+        setData(myJson);
+      });
+  };
+
   let isAdmin = false;
 
   const getArticlesParCategorie = (index) => {
@@ -39,7 +54,7 @@ const PageArticles = ({ index = -1 }) => {
   return (
     <div className={"containerArticles"}>
       {getArticlesParCategorie(index).map((elem) => (
-        <Article infos={elem} isAdmin={isAdmin} />
+        <Article infos={elem} isAdmin={isAdmin} refreshArticles={refreshArticles} />
       ))}
     </div>
   );
