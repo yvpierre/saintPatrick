@@ -91,7 +91,6 @@ const AddArticle = ({ refreshArticles, handleCancel }) => {
         label="Disponible en stock"
         name="isStockDispo"
         valuePropName="checked"
-        rules={[{ required: true, message: 'Veuillez choisir si l\'article est disponible en stock ou non' }]}
       >
         <Switch />
       </Form.Item>

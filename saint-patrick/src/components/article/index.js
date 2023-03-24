@@ -1,19 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   EditOutlined,
   ShoppingCartOutlined,
   SettingOutlined,
   DeleteOutlined,
 } from "@ant-design/icons";
-import { Avatar, Card, Modal } from "antd";
-import { useState } from "react";
+import { Avatar, Card, Modal, notification } from "antd";
 import EditArticle from "../form/EditArticle";
+
 const { Meta } = Card;
 
 export default function Article({ infos, isAdmin, refreshArticles }) {
   const [record, setSelectedUserId] = useState();
-
   const [openEdit, setOpenEdit] = useState(false);
+  const [showNotification, setShowNotification] = useState(false);
 
   const showModalEdit = (infos) => {
     setSelectedUserId(infos);
@@ -26,9 +26,12 @@ export default function Article({ infos, isAdmin, refreshArticles }) {
 
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`http://localhost:8090/Article/delete?id=${id}`, {
-        method: "DELETE",
-      });
+      const response = await fetch(
+        `http://localhost:8090/Article/delete?id=${id}`,
+        {
+          method: "DELETE",
+        }
+      );
       if (response.ok) {
         console.log("Suppression réussie");
         refreshArticles();
@@ -51,6 +54,14 @@ export default function Article({ infos, isAdmin, refreshArticles }) {
       onOk: () => {
         handleDelete(id);
       },
+    });
+  };
+
+  const handleAddToCart = () => {
+    setShowNotification(true);
+    notification.success({
+      message: "Article ajouté au panier",
+      placement: "topRight",
     });
   };
 
@@ -80,7 +91,7 @@ export default function Article({ infos, isAdmin, refreshArticles }) {
                   onClick={() => showDeleteConfirm(infos.id)}
                 />,
               ]
-            : [<ShoppingCartOutlined key="buy" />]
+            : [<ShoppingCartOutlined key="buy" onClick={handleAddToCart} />]
         }
       >
         <Meta title={infos.name} description={infos.price} />
@@ -90,10 +101,14 @@ export default function Article({ infos, isAdmin, refreshArticles }) {
         open={openEdit}
         onOk={handleClose}
         onCancel={handleClose}
+        footer={null}
       >
-        <EditArticle handleClose={handleClose} refreshArticles={refreshArticles} infos={record} />
+        <EditArticle
+          handleClose={handleClose}
+          refreshArticles={refreshArticles}
+          infos={record}
+        />
       </Modal>
     </div>
   );
 }
-
