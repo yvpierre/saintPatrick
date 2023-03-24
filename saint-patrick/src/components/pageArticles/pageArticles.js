@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { Button, Card } from "antd";
-import {
-  ShoppingCartOutlined,
-  SettingOutlined
-} from "@ant-design/icons";
+import { Button, Card, Modal } from "antd";
+import { ShoppingCartOutlined, SettingOutlined } from "@ant-design/icons";
 import Article from "../article";
+import AddArticle from "../form/AddArticle";
 import "../../index.css";
 
 const PageArticles = ({ index = -1 }) => {
   const [data, setData] = useState([]);
-  
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
   useEffect(() => {
     fetch("http://localhost:8090/Article/getAll", {
       headers: {
@@ -51,10 +50,32 @@ const PageArticles = ({ index = -1 }) => {
     }
   };
 
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+
   return (
     <div className={"containerArticles"}>
+      {index === -1 && <Button onClick={showModal}>Ajouter un article</Button>}
+      <Modal
+        title="Ajouter un article"
+        open={isModalVisible}
+        onCancel={handleCancel}
+        footer={null}
+      >
+        <AddArticle  refreshArticles={refreshArticles} handleCancel={handleCancel}/>
+      </Modal>
       {getArticlesParCategorie(index).map((elem) => (
-        <Article infos={elem} isAdmin={isAdmin} refreshArticles={refreshArticles} />
+        <Article
+          infos={elem}
+          isAdmin={isAdmin}
+          refreshArticles={refreshArticles}
+          handleCancel={handleCancel}
+        />
       ))}
     </div>
   );

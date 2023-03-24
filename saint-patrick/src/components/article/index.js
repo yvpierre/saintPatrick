@@ -7,7 +7,7 @@ import {
 } from "@ant-design/icons";
 import { Avatar, Card, Modal } from "antd";
 import { useState } from "react";
-import EditUser from "../form/EditUser";
+import EditArticle from "../form/EditArticle";
 const { Meta } = Card;
 
 export default function Article({ infos, isAdmin, refreshArticles }) {
@@ -87,11 +87,11 @@ export default function Article({ infos, isAdmin, refreshArticles }) {
       </Card>
       <Modal
         title="Modification d'un produit"
-        visible={openEdit}
+        open={openEdit}
         onOk={handleClose}
         onCancel={handleClose}
       >
-        <EditUser infos={record} />
+        <EditArticle handleClose={handleClose} refreshArticles={refreshArticles} infos={record} />
       </Modal>
     </div>
   );
