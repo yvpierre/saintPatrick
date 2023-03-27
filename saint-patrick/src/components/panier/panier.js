@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Col, Card, Image, Form, Input, Button } from "antd";
+import { Row, Col, Card, Image, Form, Input, Button, notification } from "antd";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 
 const { Meta } = Card;
@@ -32,6 +32,15 @@ const Panier = () => {
         console.log('La commande a été envoyée avec succès');
         // Vider le panier après l'envoi de la commande
         localStorage.removeItem('cart');
+        // Afficher une notification de succès
+        notification.success({
+          message: 'Commande envoyée',
+          description: 'Votre commande a été envoyée avec succès',
+          placement: 'topRight'
+        });
+        setTimeout(() => {
+          window.location.reload();
+        }, 2000);
       } else {
         console.log('Une erreur est survenue lors de l\'envoi de la commande');
       }
@@ -40,6 +49,7 @@ const Panier = () => {
       console.error('Une erreur est survenue lors de l\'envoi de la commande :', error);
     });
   };
+  
   
 
   const onFinishFailed = (errorInfo) => {

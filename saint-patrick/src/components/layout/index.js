@@ -14,7 +14,7 @@ const { Header, Content, Footer } = Layout;
 const components = [<PageArticles/>, <Panier/>,];
 
 const GlobalLayout = () => {
-  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [selectedIndex, setSelectedIndex] = useState(1);
 
   const handleMenuClick = (index) => {
     setSelectedIndex(index);
