@@ -6,7 +6,15 @@ const { Meta } = Card;
 
 const Panier = () => {
   const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
-  const total = cartItems.reduce((acc, item) => acc + item.price * item.quantityAdded, 0);
+  let total = cartItems.reduce((acc, item) => acc + item.price * item.quantityAdded, 0);
+  let discount = 0;
+
+  // Apply a 20% discount if the total cart value is >= 50 euros
+  if (total >= 50) {
+    discount = total * 0.2;
+  }
+
+  total -= discount; // Apply the discount to the total
 
   const onFinish = (values) => {
     // Créer un tableau contenant les articles ajoutés au panier
@@ -49,8 +57,6 @@ const Panier = () => {
       console.error('Une erreur est survenue lors de l\'envoi de la commande :', error);
     });
   };
-  
-  
 
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
@@ -85,42 +91,42 @@ const Panier = () => {
                 name="name"
                 rules={[{ required: true, message: "Veuillez entrer votre nom" }]}
               >
-                <Input />
-              </Form.Item>
+            <Input />
+          </Form.Item>
 
-              <Form.Item
-                label="Adresse e-mail"
-                name="email"
-                rules={[
-                  { type: "email", message: "Veuillez entrer une adresse e-mail valide" },
-                  { required: true, message: "Veuillez entrer votre adresse e-mail" },
-                ]}
-              >
-                <Input />
-              </Form.Item>
+          <Form.Item
+            label="Adresse e-mail"
+            name="email"
+            rules={[
+              { type: "email", message: "Veuillez entrer une adresse e-mail valide" },
+              { required: true, message: "Veuillez entrer votre adresse e-mail" },
+            ]}
+          >
+            <Input />
+          </Form.Item>
 
-              <Form.Item
-                label="Adresse de livraison"
-                name="address"
-                rules={[{ required: true, message: "Veuillez entrer votre adresse de livraison" }]}
-              >
-                <Input />
-              </Form.Item>
+          <Form.Item
+            label="Adresse de livraison"
+            name="address"
+            rules={[{ required: true, message: "Veuillez entrer votre adresse de livraison" }]}
+          >
+            <Input />
+          </Form.Item>
 
-              <Button
-                type="primary"
-                htmlType="submit"
-                className="checkout-button"
-                icon={<ShoppingCartOutlined />}
-              >
-                Commander ({total.toFixed(2)} €)
-              </Button>
-            </Form>
-          </div>
-        </Col>
-      </Row>
-    </div>
-  );
+          <Button
+            type="primary"
+            htmlType="submit"
+            className="checkout-button"
+            icon={<ShoppingCartOutlined />}
+          >
+            Commander ({total.toFixed(2)} € {discount > 0 && `(réduction de ${discount.toFixed(2)} €)`})
+          </Button>
+        </Form>
+      </div>
+    </Col>
+  </Row>
+</div>
+);
 };
 
 export default Panier;
