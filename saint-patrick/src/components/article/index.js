@@ -35,7 +35,6 @@ export default function Article({ infos, isAdmin, refreshArticles }) {
       if (response.ok) {
         console.log("Suppression réussie");
         refreshArticles();
-        // Mettez à jour l'état ou rechargez la page pour afficher les changements
       } else {
         console.error("Erreur lors de la suppression");
       }
@@ -58,12 +57,25 @@ export default function Article({ infos, isAdmin, refreshArticles }) {
   };
 
   const handleAddToCart = () => {
+    const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+    const index = cartItems.findIndex(item => item.id === infos.id);
+  
+    if (index !== -1) {
+      cartItems[index].quantityAdded += 1;
+    } else {
+      cartItems.push({...infos, quantityAdded: 1});
+    }
+  
+    localStorage.setItem("cart", JSON.stringify(cartItems)); 
     setShowNotification(true);
     notification.success({
       message: "Article ajouté au panier",
       placement: "topRight",
     });
   };
+  
+  
+  
 
   return (
     <div className={"cardArticle"}>

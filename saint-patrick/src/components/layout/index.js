@@ -49,7 +49,7 @@ const GlobalLayout = () => {
             <div onClick={() => handleMenuClick(-1)}
             ><SettingOutlined />&nbsp;Admin
             </div>
-            <div onClick={() => handleMenuClick(4)}
+            <div onClick={() => handleMenuClick(5)}
             ><ShoppingCartOutlined/>&nbsp;Panier
             </div>
           </div>
@@ -76,7 +76,7 @@ const GlobalLayout = () => {
               padding: "10px 20px",
             }}
           >
-            <PageArticles index={selectedIndex}/>
+            {selectedIndex === 5 ? <Panier/> : <PageArticles index={selectedIndex}/>}
           </div>
         </Content>
         <Footer
