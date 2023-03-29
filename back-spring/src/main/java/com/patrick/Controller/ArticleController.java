@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.Optional;
 
+
 @RestController
 @RequestMapping(path="/Article")
+@CrossOrigin(origins = "http://localhost:3000")
 public class ArticleController {
 
     @Autowired
@@ -88,12 +90,13 @@ public class ArticleController {
     //DELETE
     @DeleteMapping(path="/delete")
     public boolean delete(@RequestParam long id) {
-        if(get(id) != null){
+        Optional<Article> articleOptional = articleRepo.findById(id);
+        if (articleOptional.isPresent()) {
             articleRepo.deleteById(id);
             return true;
-        }
-        else
+        } else {
             return false;
+        }
     }
     //==================================================================================================
 }
