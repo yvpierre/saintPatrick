@@ -28,6 +28,14 @@ User : `u776154520_test`
 
 Password : `4w=IdgDh^Re`
 
+## Cahier des charges
+
+Thème : Saint-Patrick
+Règles de gestion : 
+-Un article appartient à une catégorie permettant de trier les articles sur le site
+-Une commande peut contenir plusieurs articles, elle détient les informations du client et un état (livrée ou non)
+-On ne peut pas supprimer un article du catalogue si il est dans une commande
+-La partie admin permet de suppprimer/modifier/créer un article
 
 ## Authors
 
