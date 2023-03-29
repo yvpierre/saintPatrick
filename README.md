@@ -30,7 +30,8 @@ Password : `4w=IdgDh^Re`
 
 ##Utilisation
 
-Pour utliser l'app en local, il faut avoir une base de donnée mySQL et l'y connecter au back-end via les variables d'envirronnement : dbName et dbMdp. L'url par défaut pointe sur une BDD nommée saint_patrick (en créer une du même nom ou adapter l'url à la votre)
+- Pour utliser l'app en local, il faut mettre de profil spring à dev, avoir une base de donnée mySQL et l'y connecter au back-end via les variables d'envirronnement : dbName et dbMdp. L'url par défaut pointe sur une BDD nommée saint_patrick (en créer une du même nom ou adapter l'url à la votre)
+- Sur le profil prod, le back-end pointe sur une BDD distante
 
 ## Cahier des charges
 
