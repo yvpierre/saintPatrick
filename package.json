@@ -1,0 +1,11 @@
+{
+  "name": "mon-projet",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "concurrently \"cd patrick && mvn spring-boot:run\" \"cd saint-patrick && npm start\""
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "concurrently": "^6.2.1"
+  }
+}
