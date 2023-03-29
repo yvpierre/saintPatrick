@@ -28,9 +28,9 @@ User : `u776154520_test`
 
 Password : `4w=IdgDh^Re`
 
-#Utilisation
+##Utilisation
 
-- Pour utliser l'app en local, il faut avoir une base de donnée mySQL et l'y connecter au back-end via les variables d'envirronnement : dbName et dbMdp. L'url par défaut pointe sur une BDD nommée saint_patrick (en créer une du même no ou adapter l'url à la votre)
+Pour utliser l'app en local, il faut avoir une base de donnée mySQL et l'y connecter au back-end via les variables d'envirronnement : dbName et dbMdp. L'url par défaut pointe sur une BDD nommée saint_patrick (en créer une du même no ou adapter l'url à la votre)
 
 ## Cahier des charges
 
