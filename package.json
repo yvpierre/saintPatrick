@@ -2,6 +2,10 @@
   "name": "saintpatrick",
   "version": "1.0.0",
   "scripts": {
-    "start": "cd back-spring && mvn spring-boot:run & cd front-react && npm install && npm start"
+    "start": "concurrently \"cd back-spring && mvn spring-boot:run\" \"cd front-react && npm install && npm start\""
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "concurrently": "^6.2.1"
   }
 }

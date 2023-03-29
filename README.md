@@ -8,6 +8,9 @@
 At the root (Saint Patrick)
 
 ```bash
+  npm install concurrently --save-dev
+```
+```bash
   npm start
 ```
 Url
