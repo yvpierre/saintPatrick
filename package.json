@@ -1,8 +1,8 @@
 {
-  "name": "mon-projet",
+  "name": "saintpatrick",
   "version": "1.0.0",
   "scripts": {
-    "start": "concurrently \"cd patrick && mvn spring-boot:run\" \"cd saint-patrick && npm start\""
+    "start": "concurrently \"cd back-spring && mvn spring-boot:run\" \"cd front-react && npm install && npm start\""
   },
   "dependencies": {},
   "devDependencies": {
