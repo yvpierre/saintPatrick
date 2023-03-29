@@ -37,6 +37,10 @@ export default function Article({ infos, isAdmin, refreshArticles }) {
         refreshArticles();
       } else {
         console.error("Erreur lors de la suppression");
+        notification.warning({
+          message: "Impossible de supprimer l'article (Article dans une commande)",
+          placement: "topRight",
+        });
       }
     } catch (error) {
       console.error("Erreur lors de la suppression:", error);
