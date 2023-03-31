@@ -9,12 +9,11 @@ const Panier = () => {
   let total = cartItems.reduce((acc, item) => acc + item.price * item.quantityAdded, 0);
   let discount = 0;
 
-  // Apply a 20% discount if the total cart value is >= 50 euros
   if (total >= 50) {
     discount = total * 0.2;
   }
 
-  total -= discount; // Apply the discount to the total
+  total -= discount; 
 
   const onFinish = (values) => {
     // Créer un tableau contenant les articles ajoutés au panier

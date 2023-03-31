@@ -44,6 +44,9 @@ Règles de gestion :
 - Le site présente les articles et permet de les ajouter à un panier puis passer une fausse commande
 - La partie admin permet de suppprimer/modifier/créer un article
 
+Règle du panier: 
+- A partir de 50 euros, -20%
+
 ## Ateurs
 
 - [YVENOU Pierre]()
