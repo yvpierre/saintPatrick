@@ -13,6 +13,11 @@ A la racine (Saint Patrick)
 ```bash
   npm start
 ```
+
+Ouvrir le projet 'back-spring'
+
+-Run PatrickApplication
+
 Url
 ```bash
   http://localhost:3000/
