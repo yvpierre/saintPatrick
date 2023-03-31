@@ -3,7 +3,7 @@
 
 
 
-## Lancement du projet
+## Lancement du projet (nécessite npm et maven)
 
 A la racine (Saint Patrick)
 
