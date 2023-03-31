@@ -14,7 +14,9 @@ A la racine (Saint Patrick)
   npm start
 ```
 
-Ouvrir le projet 'back-spring'
+## Ouvrir le projet 'back-spring'
+
+Pour lancer la partie backend: 
 
 - Mettre les variables d'environnement dbName et dbMdp dans le profil dev dans le cas d'un lancement en local (et verifier l'url de la  BDD)
 - Run PatrickApplication
