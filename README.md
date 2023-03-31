@@ -16,7 +16,8 @@ A la racine (Saint Patrick)
 
 Ouvrir le projet 'back-spring'
 
--Run PatrickApplication
+- Mettre les variables d'environnement dbName et dbMdp dans le profil dev dans le cas d'un lancement en local (et verifier l'url de la  BDD)
+- Run PatrickApplication
 
 Url
 ```bash
